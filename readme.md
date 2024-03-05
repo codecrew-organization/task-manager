@@ -5,8 +5,8 @@ This README.md file outlines the features and functionalities of the Task Manage
 ## Team Assignment
 
 - **Scrum Master:** Pantanosas
-- **Product Owner:** Noriega
-- **Back-End Team:** Mamplata, Panlasigui, Permejo
+- **Product Owner:** Mamplata
+- **Back-End Team:** Noriega, Panlasigui, Permejo
 - **Front-End Team:** Padua, Polinar
 
 ## Product Backlog
@@ -52,8 +52,8 @@ This README.md file outlines the features and functionalities of the Task Manage
 ## Contributors
 
 - Scrum Master: Pantanosas
-- Product Owner: Noriega
-- Back-End Team: Mamplata, Panlasigui, Permejo
+- Product Owner: Mamplata
+- Back-End Team: Noriega, Panlasigui, Permejo
 - Front-End Team: Padua, Polinar
 
 ## License
