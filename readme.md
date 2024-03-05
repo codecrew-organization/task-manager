@@ -55,7 +55,3 @@ This README.md file outlines the features and functionalities of the Task Manage
 - Product Owner: Mamplata
 - Back-End Team: Noriega, Panlasigui, Permejo
 - Front-End Team: Padua, Polinar
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
