@@ -171,6 +171,7 @@
                     success: function(response) {
                         $('#taskTable tbody').append(response);
                         $('#modal1').modal('close');
+                        location.reload();
                     }
                 });
             });
