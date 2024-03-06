@@ -32,4 +32,5 @@
         $stmt->close();
         $conn->close();
     }
-?>
+    
+    // new comments
