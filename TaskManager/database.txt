@@ -1,15 +1,14 @@
--- Create database
-CREATE DATABASE IF NOT EXISTS task_management;
-
--- Use database
+CREATE DATABASE task_management;
 USE task_management;
 
--- Create tasks table
-CREATE TABLE IF NOT EXISTS tasks (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
-    status ENUM('Pending', 'Completed') DEFAULT 'Pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+CREATE TABLE tblTask(
+	Id INT AUTO_INCREMENT PRIMARY KEY,
+    TaskName VARCHAR(255) NOT NULL,
+    TaskStatus VARCHAR(255),
+    TaskDate DATE,
+    Priority VARCHAR(255),
+    TaskTime TIME
 );
+
+INSERT INTO tblTask
+	VALUES(1, 'Walk', 'Need Checking', '2024-03-07', 'Low', '03:00pm');
