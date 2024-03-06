@@ -69,9 +69,9 @@
                 <div class="input-field col s6">
                     <select id="status" name="status">
                         <option value="" disabled selected>Status</option>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
+                        <option value="high">On Going</option>
+                        <option value="medium">Need Checking</option>
+                        <option value="low">Done</option>
                     </select>
                 </div>
                 <div class="input-field col s6">
