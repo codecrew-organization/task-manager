@@ -60,7 +60,7 @@
 
     <!-- ADD TASK -->
     <div id="modal1" class="modal">
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="post" id="add-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="modal-content">
                 <h4>Add Task</h4> <br>
                 <div class="input-field col s6">
@@ -161,11 +161,12 @@
             $('.timepicker').timepicker();
 
             // Add Task
-            $('#btn-flat').submit(function(e) {
+            $('#add-form').submit(function(e) {
                 e.preventDefault();
+                console.log(e)
                 $.ajax({
                     type: 'POST',
-                    url: 'add.php',
+                    url: 'add_task.php',
                     data: $(this).serialize(),
                     success: function(response) {
                         $('#taskTable tbody').append(response);
