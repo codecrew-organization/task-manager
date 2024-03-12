@@ -8,13 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['task_id'])) {
 
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("i", $taskId);
-
-            if ($stmt->execute()) {
-                echo "Task deleted successfully.";
-            } else {
-                echo "Error deleting task: " . $conn->error;
-            }
-            
+        $stmt->execute();
         $stmt->close();
     } else {
         echo "Error preparing delete statement: " . $conn->error;
@@ -24,4 +18,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['task_id'])) {
 } else {
     echo "Invalid request.";
 }
-?>

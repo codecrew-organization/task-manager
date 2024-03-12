@@ -1,9 +1,9 @@
 <?php
-    include_once("config.php");
+include_once("config.php");
 
-    // Fetch tasks from the database
-    $sql = "SELECT * FROM tblTask";
-    $result = $conn->query($sql);
+// Fetch tasks from the database
+$sql = "SELECT * FROM tblTask";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
             // Display tasks in the table
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -67,17 +67,6 @@
                     <input placeholder="Task" id="task_name" type="text" name="task_name" class="validate">
                 </div>
                 <div class="input-field col s6">
-                    <select id="status" name="status">
-                        <option value="" disabled selected>Status</option>
-                        <option value="high">On Going</option>
-                        <option value="medium">Need Checking</option>
-                        <option value="low">Done</option>
-                    </select>
-                </div>
-                <div class="input-field col s6">
-                    <input placeholder="Select Date" type="date" id="date" class="datepicker" name="date">
-                </div>
-                <div class="input-field col s6">
                     <select id="priority" name="priority">
                         <option value="" disabled selected>Priority</option>
                         <option value="high">High</option>
@@ -86,7 +75,18 @@
                     </select>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="Select Time" type="text" id="time" class="timepicker" name="time">
+                    <select id="status" name="status" disabled>
+                        <option value="">Status</option>
+                        <option value="On Going" selected>On Going</option>
+                        <option value="Need Checking">Need Checking</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Select Date" type="date" id="date" class="datepicker" name="date" disabled>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Select Time" type="text" id="time" class="timepicker" name="time" disabled>
                 </div>
             </div>
 
@@ -97,43 +97,43 @@
     </div>
 
     <!-- EDIT TASK -->
-<div id="modal2" class="modal">
-    <form id="editTaskForm" method="post">
-        <div class="modal-content">
-            <h4>Edit Task</h4>
-            <input type="hidden" id="edit_task_id" name="edit_task_id">
-            <div class="input-field">
-                <input placeholder="Task" id="edit_task_name" type="text" class="validate" name="edit_task_name">
+    <div id="modal2" class="modal">
+        <form id="editTaskForm" method="post">
+            <div class="modal-content">
+                <h4>Edit Task</h4>
+                <input type="hidden" id="edit_task_id" name="edit_task_id">
+                <div class="input-field">
+                    <input placeholder="Task" id="edit_task_name" type="text" class="validate" name="edit_task_name">
+                </div>
+                <div class="input-field">
+                    <select id="edit_status" name="edit_status">
+                        <option value="" disabled>Status</option>
+                        <option value="On Going">On Going</option>
+                        <option value="Need Checking">Need Checking</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <select id="edit_priority" name="edit_priority">
+                        <option value="" disabled>Priority</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <input placeholder="Select Date" type="text" class="datepicker" id="edit_date" name="edit_date" disabled>
+                </div>
+                <div class="input-field">
+                    <input placeholder="Select Time" type="text" class="timepicker" id="edit_time" name="edit_time" disabled>
+                </div>
             </div>
-            <div class="input-field">
-                <select id="edit_status" name="edit_status">
-                    <option value="" disabled selected>Status</option>
-                    <option value="checking">Need Checking</option>
-                    <option value="ongoing">On-Going</option>
-                    <option value="completed">Completed</option>
-                </select>
-            </div>
-            <div class="input-field">
-                <input placeholder="Select Date" type="text" class="datepicker" id="edit_date" name="edit_date">
-            </div>
-            <div class="input-field">
-                <select id="edit_priority" name="edit_priority">
-                    <option value="" disabled selected>Priority</option>
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                </select>
-            </div>
-            <div class="input-field">
-                <input placeholder="Select Time" type="text" class="timepicker" id="edit_time" name="edit_time">
-            </div>
-        </div>
 
-        <div class="modal-footer">
-            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Save</button>
-        </div>
-    </form>
-</div>
+            <div class="modal-footer">
+                <button type="submit" class="modal-close waves-effect waves-green btn-flat">Save</button>
+            </div>
+        </form>
+    </div>
 
 
     <!-- DELETE TASK -->
@@ -155,6 +155,24 @@
 
     <!-- Initialize Materialize components -->
     <script>
+        $("a[href='#modal1']").click(() => {
+            const currentTime = new Date();
+
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight
+            const formattedTime = (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes + ' ' + ampm;
+
+            // Set the date value in the format "YYYY-MM-DD"
+            const formattedDate = currentTime.toISOString().slice(0, 10);
+            $("#date").val(formattedDate);
+
+            // Set the time value
+            $("#time").val(formattedTime);
+        });
+
         $(document).ready(function() {
             $('.modal').modal();
             $('select').formSelect();
@@ -163,7 +181,12 @@
             // Add Task
             $('#add-form').submit(function(e) {
                 e.preventDefault();
-                console.log(e)
+
+                // enabled
+                $("#status").prop('disabled', false);
+                $("#date").prop('disabled', false);
+                $("#time").prop('disabled', false);
+
                 $.ajax({
                     type: 'POST',
                     url: 'add_task.php',
@@ -172,7 +195,7 @@
                         $('#taskTable tbody').append(response);
                         $('#modal1').modal('close');
                         location.reload();
-                    }
+                    },
                 });
             });
 
@@ -182,14 +205,21 @@
                 $.ajax({
                     type: 'POST',
                     url: 'edit.php',
-                    data: { task_id: taskId },
+                    data: {
+                        task_id: taskId
+                    },
                     success: function(response) {
                         var task = JSON.parse(response);
+                        console.log(task.TaskStatus);
                         $('#edit_task_id').val(task.Id);
                         $('#edit_task_name').val(task.TaskName);
                         $('#edit_status').val(task.TaskStatus);
+                        const selectElement = document.getElementById('edit_status');
+                        selectElement.dispatchEvent(new Event('change'));
                         $('#edit_date').val(task.TaskDate);
                         $('#edit_priority').val(task.Priority);
+                        const priority = document.getElementById('edit_priority');
+                        priority.dispatchEvent(new Event('change'));
                         $('#edit_time').val(task.TaskTime);
                         $('#modal2').modal('open');
                     },
@@ -203,13 +233,15 @@
             // Update Task
             $('#editTaskForm').submit(function(e) {
                 e.preventDefault();
+                // enabled
+                $("#edit_date").prop('disabled', false);
+                $("#edit_time").prop('disabled', false);
                 $.ajax({
                     type: 'POST',
                     url: 'update.php',
                     data: $(this).serialize(),
                     success: function(response) {
-                        alert(response);
-                        location.reload(); 
+                        location.reload();
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText);
@@ -235,7 +267,6 @@
                         task_id: taskId
                     },
                     success: function(response) {
-                        alert(response); // Show success/error message
                         location.reload(); // Reload the page after deletion
                     },
                     error: function(xhr, status, error) {

@@ -1,67 +1,64 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 60px;
-    background-color: #FFFEEC;
+  font-family: Arial, sans-serif;
+  margin: 60px;
+  background-color: #fffeec;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-th, td {
-    padding: 20px;
-    text-align: center;
-    
-
+th,
+td {
+  padding: 20px;
+  text-align: center;
 }
 
 table th {
-    background-color: #1b5e20 ;
-    
+  background-color: #1b5e20;
 }
 
-table tr{
-    background-color: #c8e6c9;
+table tr {
+  background-color: #c8e6c9;
 }
 a {
-    text-decoration: none;
- 
+  text-decoration: none;
 }
 
-.addbtn{
-
-    color: black;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 15px;
-    position: absolute;
-    bottom: 90px;
-    left: 70px;
-    background: #212121;
-    padding: 10px;
+.addbtn {
+  color: black;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  position: absolute;
+  bottom: 90px;
+  left: 70px;
+  background: #212121;
+  padding: 10px;
 }
 
-
-
-.editbtn, .delbtn {
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 15px;
-    background: #212121;
-    
+.editbtn,
+.delbtn {
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  background: #212121;
 }
 
 .btn-large {
-    background-color: #1b5e20; /* Button background color */
-    color: white; /* Text color */
+  background-color: #1b5e20; /* Button background color */
+  color: white; /* Text color */
 }
 
 .btn-large:hover {
-    background-color: #141414;  /* Button background color on hover */
+  background-color: #141414; /* Button background color on hover */
+}
+
+#status {
+  pointer-events: none;
 }

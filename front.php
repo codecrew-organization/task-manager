@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   
+
     <title>Document</title>
     <link rel="stylesheet" href="front.css">
 </head>
+
 <body>
     <h1>TASK MANAGEMENT</h1>
 
@@ -30,9 +32,9 @@
             <div class="input-field col s6">
                 <select id="status">
                     <option value="" disabled selected>Status</option>
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
+                    <option value="On Going">On Going</option>
+                    <option value="Need Checking">Need Checking</option>
+                    <option value="Done">Done</option>
                 </select>
             </div>
             <div class="input-field col s6">
@@ -56,19 +58,18 @@
         </div>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-<script>
-    $(document).ready(function(){
-        $('.modal').modal();
-        $('select').formSelect();
-        $('.datepicker').datepicker();
-        $('.timepicker').timepicker();
-    });
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.modal').modal();
+            $('select').formSelect();
+            $('.datepicker').datepicker();
+            $('.timepicker').timepicker();
+        });
+    </script>
 
 </body>
 
 </html>
-
